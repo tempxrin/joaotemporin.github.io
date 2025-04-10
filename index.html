@@ -1,114 +1,148 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Settings } from 'lucide-react';
-
-export default function Portfolio() {
-  const [selectedFormacao, setSelectedFormacao] = useState(0);
-
-  const formacoes = [
-    {
-      periodo: "Junho, 2022",
-      tipo: "Pós-Graduação",
-      curso: "Engenharia de Dados",
-      descricao:
-        "Ter a capacidade de criar e gerenciar infraestruturas de dados se tornou uma necessidade latente no mercado. Por isso, busquei aprender a projetar e implementar soluções e plataformas de Big Data, seja para uso analítico ou operacional. Estudei como obter e tratar dados e armazenar dados de forma eficiente para aumentar o diferencial competitivo das organizações."
-    },
-    {
-      periodo: "Julho, 2021",
-      tipo: "Graduação",
-      curso: "Administração de Empresas",
-      descricao:
-        "Desenvolvi uma base sólida em gestão de negócios, análise financeira e planejamento estratégico. A formação me proporcionou visão ampla sobre processos organizacionais e tomada de decisão baseada em dados."
-    },
-    {
-      periodo: "Janeiro, 2023",
-      tipo: "Curso Livre",
-      curso: "Especialização em Machine Learning",
-      descricao:
-        "Aprofundei meus conhecimentos em algoritmos de aprendizado supervisionado e não supervisionado, aplicando técnicas com Python para resolver problemas reais de negócio."
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>João Daniel Temporin - Portfólio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.11.0/dist/gsap.min.js"></script>
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
     }
-  ];
+    section {
+      padding: 50px 20px;
+      margin: 0 auto;
+      max-width: 1200px;
+    }
+    nav {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 20px;
+    }
+    nav button {
+      background-color: #e6007e;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    nav button:hover {
+      background-color: #d5006f;
+      color: white;
+    }
+    .hero {
+      background-image: url('https://img.freepik.com/fotos-premium/grafico-do-visualizador-de-dados-de-negocios-e-dados-financeiros_31965-23939.jpg?semt=ais_hybrid&w=740');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+    }
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .hero h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 800px;
+    }
+    .formacao {
+      background-color: #f0f4ff;
+      margin-top: 80px;
+    }
+    .formacao h2 {
+      color: #e6007e;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .formacao .content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
+    .formacao .content div {
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+    }
+    .formacao .content div p {
+      color: #3a506b;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
 
-  const handleScrollToSection = (sectionId) => {
-    const section = document.getElementById(sectionId);
-    section.scrollIntoView({ behavior: 'smooth' });
-  };
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>João Daniel Temporin</h1>
+    <h2>Analista de Dados</h2>
+    <p>Transformo dados em insights estratégicos. Experiência em Power BI, Python, SQL, Ciência de Dados e Estatística Aplicado a Negócios.</p>
+  </section>
 
-  return (
-    <div className="bg-gradient-to-br from-[#e9f1ff] to-[#f0f4ff] text-[#1b1f3b] min-h-screen font-sans">
-      {/* Hero Section */}
-      <section
-        className="relative bg-cover bg-center h-screen text-white"
-        style={{
-          backgroundImage:
-            "url('https://img.freepik.com/fotos-premium/grafico-do-visualizador-de-dados-de-negocios-e-dados-financeiros_31965-23939.jpg?semt=ais_hybrid&w=740')"
-        }}
-      >
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-        <nav className="absolute top-6 left-1/2 transform -translate-x-1/2 flex gap-6 z-10">
-          {['sobre', 'habilidade', 'experiencia', 'formacao', 'projetos', 'contato'].map((item, index) => (
-            <button
-              key={index}
-              onClick={() => handleScrollToSection(item)}
-              className="nav-button text-white px-4 py-2 rounded-full transition-all duration-300 hover:bg-[#e6007e] hover:text-white"
-            >
-              {item.charAt(0).toUpperCase() + item.slice(1)}
-            </button>
-          ))}
-        </nav>
-        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
-          <h1 className="text-6xl font-extrabold mb-4 drop-shadow-xl">João Daniel Temporin</h1>
-          <h2 className="text-2xl font-semibold mb-4">Analista de Dados</h2>
-          <p className="text-lg max-w-2xl text-gray-200">
-            Transformo dados em insights estratégicos. Experiência em Power BI, Python, SQL, Ciência de Dados e Estatística Aplicado a Negócios.
-          </p>
-        </div>
-      </section>
+  <!-- Navigation Section -->
+  <nav>
+    <button onclick="scrollToSection('sobre')">Sobre Mim</button>
+    <button onclick="scrollToSection('habilidades')">Habilidades</button>
+    <button onclick="scrollToSection('formacao')">Formações Acadêmicas</button>
+    <button onclick="scrollToSection('projetos')">Projetos</button>
+    <button onclick="scrollToSection('contato')">Contato</button>
+  </nav>
 
-      {/* Formação Acadêmica */}
-      <section className="px-6 py-16 bg-white" id="formacao">
-        <h2 className="text-3xl font-bold text-center mb-10 text-[#e6007e]">Formações Acadêmicas</h2>
-        <div className="flex flex-col items-center md:flex-row md:justify-center">
-          <div className="text-center md:text-right md:pr-10">
-            <h3 className="text-xl font-bold">{formacoes[selectedFormacao].tipo}</h3>
-            <p className="text-gray-500">{formacoes[selectedFormacao].periodo}</p>
-          </div>
-          <div className="border-l-4 border-gray-200 h-full mx-6 hidden md:block"></div>
-          <motion.div
-            key={selectedFormacao}
-            initial={{ opacity: 0, x: 100 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            className="max-w-xl"
-          >
-            <div className="flex items-center gap-3 mb-4">
-              <div className="bg-black text-white p-2 rounded-full">
-                <Settings size={20} />
-              </div>
-              <h3 className="text-lg font-bold">{formacoes[selectedFormacao].curso}</h3>
-            </div>
-            <p className="text-[#3a506b] leading-relaxed">{formacoes[selectedFormacao].descricao}</p>
-          </motion.div>
-        </div>
-        <div className="flex justify-center gap-2 mt-8">
-          {formacoes.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setSelectedFormacao(index)}
-              className={`w-3 h-3 rounded-full transition-colors duration-300 ${index === selectedFormacao ? 'bg-[#e6007e]' : 'bg-gray-300'}`}
-            />
-          ))}
-        </div>
-      </section>
+  <!-- About Me Section -->
+  <section id="sobre">
+    <h2>Sobre Mim</h2>
+    <p>Sou um Analista de Dados apaixonado por transformar dados em insights estratégicos para negócios. Tenho experiência em Power BI, Python, SQL, Machine Learning e outras ferramentas de análise de dados.</p>
+  </section>
 
-      {/* Outras seções (exemplo Sobre, Habilidades, etc.) */}
-      <section className="px-6 py-16 bg-white" id="sobre">
-        <h2 className="text-3xl font-bold text-center mb-10 text-[#e6007e]">Sobre Mim</h2>
-        <p className="text-[#3a506b] leading-relaxed text-center">
-          Sou um Analista de Dados com paixão por transformar dados em insights estratégicos para negócios. Tenho experiência
-          em Power BI, Python, SQL, Machine Learning e outras ferramentas de análise de dados.
-        </p>
-      </section>
+  <!-- Formations Section -->
+  <section class="formacao" id="formacao">
+    <h2>Formações Acadêmicas</h2>
+    <div class="content">
+      <div>
+        <h3>Pós-Graduação</h3>
+        <p>Engenharia de Dados - Junho, 2022</p>
+        <p>Ter a capacidade de criar e gerenciar infraestruturas de dados se tornou uma necessidade latente no mercado. Por isso, busquei aprender a projetar e implementar soluções e plataformas de Big Data, seja para uso analítico ou operacional.</p>
+      </div>
+      <div>
+        <h3>Graduação</h3>
+        <p>Administração de Empresas - Julho, 2021</p>
+        <p>Desenvolvi uma base sólida em gestão de negócios, análise financeira e planejamento estratégico. A formação me proporcionou visão ampla sobre processos organizacionais e tomada de decisão baseada em dados.</p>
+      </div>
+      <div>
+        <h3>Curso Livre</h3>
+        <p>Especialização em Machine Learning - Janeiro, 2023</p>
+        <p>Aprofundei meus conhecimentos em algoritmos de aprendizado supervisionado e não supervisionado, aplicando técnicas com Python para resolver problemas reais de negócio.</p>
+      </div>
     </div>
-  );
-}
+  </section>
+
+  <!-- JavaScript for Scrolling -->
+  <script>
+    function scrollToSection(id) {
+      const section = document.getElementById(id);
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+  
+</body>
+</html>
