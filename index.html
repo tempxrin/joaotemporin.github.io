@@ -3,16 +3,6 @@
 
 <head>
 
-    <!-- Google Tag Manager -->
-    <script>
-        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-PNSXVNR');
-    </script>
-    <!-- End Google Tag Manager -->
-
     <!-- Meta Tags -->
     <meta charset="utf-8">
     <title>João Daniel Temporin - Portfólio</title>
@@ -37,59 +27,97 @@
 
     <link rel="icon" type="image/png" href="favicon.png">
 
+    <!-- Estilo Adicional -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Botões no topo */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .button-container a {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 25px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 30px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .button-container a:hover {
+            background-color: #45a049;
+            color: #f0f0f0;
+        }
+
+        /* Seção sobre mim */
+        #about {
+            background-color: #fff;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        /* Adicionando uma transição suave */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Estilo da seção inicial */
+        #intro {
+            background: #333;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        #intro h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        #intro p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+        }
+
+        .intro-social a {
+            color: white;
+            margin: 0 10px;
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+
+        .intro-social a:hover {
+            color: #45a049;
+        }
+    </style>
+
 </head>
 
 <body id="top">
 
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PNSXVNR"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+    <!-- Seção de Botões -->
+    <div class="button-container">
+        <a href="#about" title="">Sobre Mim</a>
+        <!-- Aqui você pode adicionar outros botões para as outras seções -->
+    </div>
 
-    <!-- Header -->
-    <header>
-        <div class="row">
-            <div class="top-bar">
-                <a class="menu-toggle" href="#"><span>Menu</span></a>
-
-                <div class="logo">
-                    <a href="index.html">João Daniel Temporin</a>
-                </div>
-
-                <nav id="main-nav-wrap">
-                    <ul class="main-navigation">
-                        <li class="current"><a class="smoothscroll" href="#intro" title="">Início</a></li>
-                        <li><a class="smoothscroll" href="#about" title="">Sobre Mim</a></li>
-                        <li><a class="smoothscroll" href="#skills" title="">Habilidades</a></li>
-                        <li><a class="smoothscroll" href="#experience" title="">Experiência</a></li>
-                        <li><a class="smoothscroll" href="#education" title="">Formação</a></li>
-                        <li><a class="smoothscroll" href="#projects" title="">Projetos</a></li>
-                        <li><a class="smoothscroll" href="#contact" title="">Contato</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
-
-    <!-- Intro Section -->
+    <!-- Seção Intro -->
     <section id="intro">
-        <div class="intro-overlay"></div>
-
         <div class="intro-content">
-            <div class="row">
-                <div class="col-twelve">
-                    <h5>Olá, seja bem-vindo!</h5>
-                    <h1>Eu sou <br> João Daniel Temporin</h1>
-
-                    <p class="intro-position">
-                        <span>Analista de Dados</span><br>
-                        <span>Transformo dados em insights estratégicos.</span><br>
-                        <span>Experiência em Power BI, Python, SQL, Ciência de Dados e Estatística Aplicada a Negócios.</span>
-                    </p>
-
-                    <a class="button stroke smoothscroll" href="#about" title="">Sobre Mim</a>
-                </div>
-            </div>
+            <h1>João Daniel Temporin</h1>
+            <p>Analista de Dados</p>
+            <p>Transformo dados em insights estratégicos. Experiência em Power BI, Python, SQL, Ciência de Dados e Estatística Aplicada a Negócios.</p>
         </div>
         <ul class="intro-social">
             <li><a href="mailto:joao.temporin@gmail.com"><i class="fas fa-envelope"></i></a></li>
@@ -98,70 +126,12 @@
         </ul>
     </section>
 
-    <!-- About Section -->
+    <!-- Seção Sobre Mim -->
     <section id="about">
         <div class="row">
             <div class="col-twelve">
                 <h2>Sobre Mim</h2>
                 <p>Sou apaixonado por dados e por transformar informações em insights valiosos. Com experiência em análise de dados, principalmente utilizando Power BI, Python, SQL e ferramentas de análise estatística, busco sempre melhorar os processos de negócios e ajudar na tomada de decisões estratégicas.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills">
-        <div class="row">
-            <div class="col-twelve">
-                <h2>Habilidades</h2>
-                <ul>
-                    <li>Power BI</li>
-                    <li>Python</li>
-                    <li>SQL</li>
-                    <li>Data Science</li>
-                    <li>Estatística Aplicada</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience">
-        <div class="row">
-            <div class="col-twelve">
-                <h2>Experiência</h2>
-                <p>Atualmente, trabalho como Analista de Dados na Dechra Brasil, onde sou responsável por gerar insights estratégicos a partir de dados de vendas, concorrência e comportamento dos clientes, com ênfase no uso de Power BI, Python e análise estatística.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education">
-        <div class="row">
-            <div class="col-twelve">
-                <h2>Formação</h2>
-                <p>Estou cursando Administração na PUCPR, com previsão de formatura no final de 2025. Busco constantemente aprimorar minhas habilidades técnicas e analíticas, com foco em Business Intelligence e Data Science.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects">
-        <div class="row">
-            <div class="col-twelve">
-                <h2>Projetos</h2>
-                <p>Confira alguns dos meus projetos mais recentes:</p>
-                <!-- Adicione links para seus projetos no GitHub ou outros repositórios -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="row">
-            <div class="col-twelve">
-                <h2>Contato</h2>
-                <p>Fique à vontade para entrar em contato para mais informações sobre meus projetos ou para discutir futuras colaborações.</p>
-                <a href="mailto:joao.temporin@gmail.com" class="button stroke">Enviar Email</a>
             </div>
         </div>
     </section>
