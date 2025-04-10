@@ -18,21 +18,23 @@
       background: linear-gradient(to bottom right, #e9f1ff, #f0f4ff);
       color: #1b1f3b;
     }
-    .bg-cover {
-      background-position: center;
-      background-size: cover;
-    }
+
+    /* Hero Section */
     .hero-section {
       position: relative;
       height: 100vh;
       background-image: url('https://img.freepik.com/fotos-premium/grafico-do-visualizador-de-dados-de-negocios-e-dados-financeiros_31965-23939.jpg?semt=ais_hybrid&w=740');
+      background-position: center;
+      background-size: cover;
       color: white;
     }
-    .hero-section .overlay {
+
+    .overlay {
       position: absolute;
       inset: 0;
       background: rgba(0, 0, 0, 0.5);
     }
+
     .nav {
       position: absolute;
       top: 6%;
@@ -42,6 +44,7 @@
       gap: 20px;
       z-index: 10;
     }
+
     .nav a {
       color: white;
       text-decoration: none;
@@ -49,33 +52,50 @@
       border-radius: 5px;
       transition: background-color 0.3s;
     }
+
     .nav a:hover {
       background-color: white;
       color: black;
     }
+
+    /* Hero Content */
     .hero-content {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
     }
+
     .hero-content h1 {
-      font-size: 4rem;
+      font-size: 3rem;
       font-weight: bold;
+      margin: 0;
     }
+
     .hero-content h2 {
       font-size: 1.5rem;
       font-weight: semi-bold;
     }
+
     .hero-content p {
       font-size: 1rem;
       max-width: 600px;
-      margin: 0 auto;
+      margin: 20px auto;
+      line-height: 1.6;
     }
+
+    .highlight {
+      color: #003366; /* Azul escuro para destacar seu nome */
+    }
+
+    /* Formação Acadêmica */
     .section {
       padding: 50px 20px;
     }
+
     .section h2 {
       font-size: 2rem;
       font-weight: bold;
@@ -83,6 +103,7 @@
       text-align: center;
       margin-bottom: 20px;
     }
+
     .formacao-item {
       display: flex;
       justify-content: center;
@@ -90,26 +111,32 @@
       gap: 20px;
       margin-bottom: 20px;
     }
+
     .formacao-info {
       text-align: center;
     }
+
     .formacao-info h3 {
       font-size: 1.5rem;
       font-weight: bold;
     }
+
     .formacao-info p {
       color: gray;
     }
+
     .formacao-description {
       max-width: 600px;
       color: #3a506b;
       text-align: left;
     }
+
     .slider-buttons {
       display: flex;
       justify-content: center;
       gap: 10px;
     }
+
     .slider-buttons button {
       width: 15px;
       height: 15px;
@@ -118,6 +145,7 @@
       border: none;
       cursor: pointer;
     }
+
     .slider-buttons button.active {
       background-color: #e6007e;
     }
@@ -126,7 +154,7 @@
 <body>
 
   <!-- Hero Section -->
-  <section class="hero-section bg-cover">
+  <section class="hero-section">
     <div class="overlay"></div>
     <nav class="nav">
       <a href="#sobre">Sobre Mim</a>
@@ -137,8 +165,8 @@
       <a href="#contato">Contato</a>
     </nav>
     <div class="hero-content">
-      <h1>Olá, sou o João Daniel Temporin</h1>
-      <h2>Analista de Dados</h2>
+      <h1>Olá, seja bem-vindo!</h1>
+      <h2>Eu sou o <span class="highlight">João Daniel Temporin</span></h2>
       <p>Transformo dados em insights estratégicos. Experiência em Power BI, Python, SQL e Ciência de Dados.</p>
     </div>
   </section>
