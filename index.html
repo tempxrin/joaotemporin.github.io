@@ -1,205 +1,111 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+import { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Mail, Linkedin, Github, Settings } from "lucide-react";
+import { motion } from "framer-motion";
 
-<head>
+export default function Portfolio() {
+  const [selectedFormacao, setSelectedFormacao] = useState(0);
 
-    <!-- Meta Tags -->
-    <meta charset="utf-8">
-    <title>João Daniel Temporin - Portfólio</title>
-    <meta name="description" content="Portfólio de João Daniel Temporin - Analista de Dados">
-    <meta name="author" content="João Daniel Temporin">
+  const formacoes = [
+    {
+      periodo: "Junho, 2022",
+      tipo: "Pós-Graduação",
+      curso: "Engenharia de Dados",
+      descricao:
+        "Ter a capacidade de criar e gerenciar infraestruturas de dados se tornou uma necessidade latente no mercado. Por isso, busquei aprender a projetar e implementar soluções e plataformas de Big Data, seja para uso analítico ou operacional. Estudei como obter e tratar dados e armazenar dados de forma eficiente para aumentar o diferencial competitivo das organizações."
+    },
+    {
+      periodo: "Julho, 2021",
+      tipo: "Graduação",
+      curso: "Administração de Empresas",
+      descricao:
+        "Desenvolvi uma base sólida em gestão de negócios, análise financeira e planejamento estratégico. A formação me proporcionou visão ampla sobre processos organizacionais e tomada de decisão baseada em dados."
+    },
+    {
+      periodo: "Janeiro, 2023",
+      tipo: "Curso Livre",
+      curso: "Especialização em Machine Learning",
+      descricao:
+        "Aprofundei meus conhecimentos em algoritmos de aprendizado supervisionado e não supervisionado, aplicando técnicas com Python para resolver problemas reais de negócio."
+    }
+  ];
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  return (
+    <div className="bg-gradient-to-br from-[#e9f1ff] to-[#f0f4ff] text-[#1b1f3b] min-h-screen font-sans">
+      {/* Hero Section */}
+      <section
+        className="relative bg-cover bg-center h-screen text-white"
+        style={{
+          backgroundImage:
+            "url('https://img.freepik.com/fotos-premium/grafico-do-visualizador-de-dados-de-negocios-e-dados-financeiros_31965-23939.jpg?semt=ais_hybrid&w=740')"
+        }}
+      >
+        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+        <nav className="absolute top-6 left-1/2 transform -translate-x-1/2 flex gap-6 z-10">
+          {[
+            "Sobre Mim",
+            "Habilidade",
+            "Experiência",
+            "Formação",
+            "Projetos",
+            "Contato"
+          ].map((item, index) => (
+            <a
+              key={index}
+              href={`#${item.toLowerCase().replace(/ /g, "")}`}
+              className="text-white px-4 py-2 rounded hover:bg-white hover:text-black transition-colors duration-300"
+            >
+              {item}
+            </a>
+          ))}
+        </nav>
+        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
+          <h1 className="text-6xl font-extrabold mb-4 drop-shadow-xl">João Daniel Temporin</h1>
+          <h2 className="text-2xl font-semibold mb-4">Analista de Dados</h2>
+          <p className="text-lg max-w-2xl text-gray-200">
+            Transformo dados em insights estratégicos. Experiência em Power BI, Python, SQL, Ciência de Dados e Estatística Aplicado a Negócios.
+          </p>
+        </div>
+      </section>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/vendor.css">
-    <link rel="stylesheet" href="css/slidebar.css">
-
-    <script src="js/modernizr.js"></script>
-    <script src="js/pace.min.js"></script>
-    <script src="js/slidebar.js"></script>
-
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-
-    <link rel="stylesheet" href="css/font-awesome-6/css/all.css" type="text/css">
-
-    <link rel="icon" type="image/png" href="favicon.png">
-
-    <!-- Estilo Adicional -->
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-
-        /* Botões no topo */
-        .button-container {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .button-container a {
-            background-color: #4CAF50;
-            color: white;
-            padding: 15px 25px;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
-            border-radius: 30px;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        .button-container a:hover {
-            background-color: #45a049;
-            color: #f0f0f0;
-        }
-
-        /* Seção sobre mim */
-        #about, #skills, #experience, #education, #projects, #contact {
-            background-color: #fff;
-            padding: 60px 20px;
-            text-align: center;
-        }
-
-        /* Adicionando uma transição suave */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Estilo da seção inicial */
-        #intro {
-            background: #333;
-            color: white;
-            padding: 100px 20px;
-            text-align: center;
-        }
-
-        #intro h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-        }
-
-        #intro p {
-            font-size: 1.5em;
-            margin-bottom: 30px;
-        }
-
-        .intro-social a {
-            color: white;
-            margin: 0 10px;
-            font-size: 20px;
-            transition: color 0.3s;
-        }
-
-        .intro-social a:hover {
-            color: #45a049;
-        }
-
-        /* Estilo para a imagem */
-        #intro img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin-top: 20px;
-        }
-    </style>
-
-</head>
-
-<body id="top">
-
-    <!-- Seção de Botões -->
-    <div class="button-container">
-        <a href="#about" title="">Sobre Mim</a>
-        <a href="#skills" title="">Habilidades</a>
-        <a href="#experience" title="">Experiência</a>
-        <a href="#education" title="">Formação</a>
-        <a href="#projects" title="">Projetos</a>
-        <a href="#contact" title="">Contato</a>
+      {/* Formação Acadêmica Estilo Slider */}
+      <section className="px-6 py-16 bg-white" id="formação">
+        <h2 className="text-3xl font-bold text-center mb-10 text-[#e6007e]">Formações Acadêmicas</h2>
+        <div className="flex flex-col items-center md:flex-row md:justify-center">
+          <div className="text-center md:text-right md:pr-10">
+            <h3 className="text-xl font-bold">{formacoes[selectedFormacao].tipo}</h3>
+            <p className="text-gray-500">{formacoes[selectedFormacao].periodo}</p>
+          </div>
+          <div className="border-l-4 border-gray-200 h-full mx-6 hidden md:block"></div>
+          <motion.div
+            key={selectedFormacao}
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            className="max-w-xl"
+          >
+            <div className="flex items-center gap-3 mb-4">
+              <div className="bg-black text-white p-2 rounded-full">
+                <Settings size={20} />
+              </div>
+              <h3 className="text-lg font-bold">{formacoes[selectedFormacao].curso}</h3>
+            </div>
+            <p className="text-[#3a506b] leading-relaxed">{formacoes[selectedFormacao].descricao}</p>
+          </motion.div>
+        </div>
+        <div className="flex justify-center gap-2 mt-8">
+          {formacoes.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setSelectedFormacao(index)}
+              className={`w-3 h-3 rounded-full transition-colors duration-300 ${
+                index === selectedFormacao ? "bg-[#e6007e]" : "bg-gray-300"
+              }`}
+            />
+          ))}
+        </div>
+      </section>
     </div>
-
-    <!-- Seção Intro -->
-    <section id="intro">
-        <div class="intro-content">
-            <h1>João Daniel Temporin</h1>
-            <p>Analista de Dados</p>
-            <p>Transformo dados em insights estratégicos. Experiência em Power BI, Python, SQL, Ciência de Dados e Estatística Aplicada a Negócios.</p>
-            <!-- Adicionando a imagem -->
-            <img src="sua-imagem.jpg" alt="João Daniel Temporin">
-        </div>
-        <ul class="intro-social">
-            <li><a href="mailto:joao.temporin@gmail.com"><i class="fas fa-envelope"></i></a></li>
-            <li><a href="https://github.com/joaodtemporin"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://www.linkedin.com/in/joaodtemporin/"><i class="fab fa-linkedin"></i></a></li>
-        </ul>
-    </section>
-
-    <!-- Seção Sobre Mim -->
-    <section id="about">
-        <div class="row">
-            <div class="col-twelve">
-                <h2>Sobre Mim</h2>
-                <p>Sou apaixonado por dados e por transformar informações em insights valiosos. Com experiência em análise de dados, principalmente utilizando Power BI, Python, SQL e ferramentas de análise estatística, busco sempre melhorar os processos de negócios e ajudar na tomada de decisões estratégicas.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Seção Habilidades -->
-    <section id="skills">
-        <div class="row">
-            <div class="col-twelve">
-                <h2>Habilidades</h2>
-                <p>Experiência com ferramentas como Power BI, Python, SQL, Análise de Dados e Estatística Aplicada. Sempre buscando aprimorar e aprender novas tecnologias para impulsionar negócios com dados.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Seção Experiência -->
-    <section id="experience">
-        <div class="row">
-            <div class="col-twelve">
-                <h2>Experiência</h2>
-                <p>Atualmente trabalhando como Analista de Dados, com foco em análise de dados de vendas, criação de relatórios interativos e tomada de decisões estratégicas para a empresa.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Seção Formação -->
-    <section id="education">
-        <div class="row">
-            <div class="col-twelve">
-                <h2>Formação</h2>
-                <p>Estou cursando Administração na PUCPR, com ênfase em Análise de Dados e Business Intelligence. Além disso, participei de diversos cursos de Power BI, Python e Estatística Aplicada.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Seção Projetos -->
-    <section id="projects">
-        <div class="row">
-            <div class="col-twelve">
-                <h2>Projetos</h2>
-                <p>Veja alguns dos projetos que desenvolvi utilizando ferramentas como Power BI, Python e SQL para análise de dados e criação de dashboards interativos.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Seção Contato -->
-    <section id="contact">
-        <div class="row">
-            <div class="col-twelve">
-                <h2>Contato</h2>
-                <p>Entre em contato comigo pelo email: joao.temporin@gmail.com ou acesse minhas redes sociais para mais informações sobre meu trabalho.</p>
-            </div>
-        </div>
-    </section>
-
-</body>
-
-</html>
+  );
+}
