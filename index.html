@@ -1,167 +1,94 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>João Daniel Temporin - Portfólio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.11.0/dist/gsap.min.js"></script>
-  <style>
-    body {
-      font-family: 'Montserrat', sans-serif;
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden; /* Impede que a página tenha barra de rolagem horizontal */
-    }
-    section {
-      padding: 50px 20px;
-      margin: 0 auto;
-      max-width: 1200px;
-    }
-    nav {
-      position: fixed;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 20px;
-    }
-    nav button {
-      background-color: #e6007e;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    nav button:hover {
-      background-color: #d5006f;
-      color: white;
-    }
-    .hero {
-      position: relative; /* Para garantir que o efeito de desfoque da imagem seja aplicado */
-      background-image: url('https://www.comececomopedireito.com.br/blog/wp-content/uploads/2024/02/analise-de-dados-com-power-bi.jpg');
-      background-size: cover; /* Faz a imagem cobrir toda a tela */
-      background-position: center;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      height: 100vh; /* 100% da altura da janela */
-      width: 100%; /* 100% da largura da tela */
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: white;
-      overflow: hidden;
-    }
-    .hero::after {
-      content: ""; /* Cria um pseudo-elemento para aplicar o desfoque diretamente na imagem */
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: inherit;
-      background-size: cover;
-      background-position: center;
-      filter: blur(8px); /* Aplica o desfoque na imagem */
-      z-index: -1; /* Garante que o desfoque fique atrás do conteúdo */
-    }
-    .hero h1 {
-      font-size: 4rem;
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
-    .hero h2 {
-      font-size: 2rem;
-      font-weight: 600;
-      margin-bottom: 20px;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      max-width: 800px;
-    }
-    .formacao {
-      background-color: #f0f4ff;
-      margin-top: 80px;
-    }
-    .formacao h2 {
-      color: #e6007e;
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    .formacao .content {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-    }
-    .formacao .content div {
-      text-align: center;
-      width: 100%;
-      max-width: 400px;
-    }
-    .formacao .content div p {
-      color: #3a506b;
-      line-height: 1.6;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Seu Portfólio</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Referência para o CSS externo -->
+    <style>
+        /* Adicionando as regras para o efeito de desfoque e cobertura */
+        #intro {
+            position: relative;
+            height: 100vh; /* Faz com que a imagem cubra a altura total da tela */
+            background-image: url('caminho-para-sua-imagem.jpg'); /* Substitua com o caminho da sua imagem */
+            background-size: cover;
+            background-position: center;
+            filter: blur(10px); /* Aplica o desfoque na imagem */
+            transition: filter 0.5s ease-out;
+        }
+
+        /* Reverter o desfoque quando a página rolar para outra seção */
+        body:not(:hover) #intro {
+            filter: blur(10px);
+        }
+
+        #intro .intro-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+        }
+
+        #intro .intro-content h1 {
+            font-size: 4em;
+            margin: 0;
+        }
+
+        #intro .intro-content .button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #ff4500;
+            color: white;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        #intro .intro-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5); /* Overlay escuro para contrastar o texto */
+        }
+
+        /* Adiciona uma transição suave na imagem quando a rolagem ocorre */
+        #about {
+            padding: 60px 0;
+        }
+    </style>
 </head>
+
 <body>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>João Daniel Temporin</h1>
-    <h2>Analista de Dados</h2>
-    <p>Transformo dados em insights estratégicos. Experiência em Power BI, Python, SQL, Ciência de Dados e Estatística Aplicado a Negócios.</p>
-  </section>
+    <!-- Seção de Introdução -->
+    <section id="intro">
+        <div class="intro-overlay"></div>
+        <div class="intro-content">
+            <h1>Olá, Eu sou João Temporin</h1>
+            <p>Analista de Dados | Especialista em Excel & BI</p>
+            <a href="#about" class="button">Sobre Mim</a>
+        </div>
+    </section>
 
-  <!-- Navigation Section -->
-  <nav>
-    <button onclick="scrollToSection('sobre')">Sobre Mim</button>
-    <button onclick="scrollToSection('habilidades')">Habilidades</button>
-    <button onclick="scrollToSection('formacao')">Formações Acadêmicas</button>
-    <button onclick="scrollToSection('projetos')">Projetos</button>
-    <button onclick="scrollToSection('contato')">Contato</button>
-  </nav>
+    <!-- Seção Sobre Mim -->
+    <section id="about">
+        <div class="row section-intro">
+            <div class="col-twelve">
+                <h5>Sobre</h5>
+                <h1>Quem sou</h1>
+            </div>
+        </div>
 
-  <!-- About Me Section -->
-  <section id="sobre">
-    <h2>Sobre Mim</h2>
-    <p>Sou um Analista de Dados apaixonado por transformar dados em insights estratégicos para negócios. Tenho experiência em Power BI, Python, SQL, Machine Learning e outras ferramentas de análise de dados.</p>
-  </section>
+        <!-- Aqui você pode adicionar mais conteúdo para a seção sobre mim -->
+    </section>
 
-  <!-- Formations Section -->
-  <section class="formacao" id="formacao">
-    <h2>Formações Acadêmicas</h2>
-    <div class="content">
-      <div>
-        <h3>Pós-Graduação</h3>
-        <p>Engenharia de Dados - Junho, 2022</p>
-        <p>Ter a capacidade de criar e gerenciar infraestruturas de dados se tornou uma necessidade latente no mercado. Por isso, busquei aprender a projetar e implementar soluções e plataformas de Big Data, seja para uso analítico ou operacional.</p>
-      </div>
-      <div>
-        <h3>Graduação</h3>
-        <p>Administração de Empresas - Julho, 2021</p>
-        <p>Desenvolvi uma base sólida em gestão de negócios, análise financeira e planejamento estratégico. A formação me proporcionou visão ampla sobre processos organizacionais e tomada de decisão baseada em dados.</p>
-      </div>
-      <div>
-        <h3>Curso Livre</h3>
-        <p>Especialização em Machine Learning - Janeiro, 2023</p>
-        <p>Aprofundei meus conhecimentos em algoritmos de aprendizado supervisionado e não supervisionado, aplicando técnicas com Python para resolver problemas reais de negócio.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- JavaScript for Scrolling -->
-  <script>
-    function scrollToSection(id) {
-      const section = document.getElementById(id);
-      section.scrollIntoView({ behavior: 'smooth' });
-    }
-  </script>
-  
 </body>
+
 </html>
