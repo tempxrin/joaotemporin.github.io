@@ -40,10 +40,10 @@
       color: white;
     }
     .hero {
-      position: relative; /* Para permitir o efeito de desfoque no fundo */
+      position: relative; /* Para garantir que o efeito de desfoque da imagem seja aplicado */
       background-image: url('https://www.comececomopedireito.com.br/blog/wp-content/uploads/2024/02/analise-de-dados-com-power-bi.jpg');
       background-size: cover; /* Faz a imagem cobrir toda a tela */
-      background-position: center; /* Centraliza a imagem */
+      background-position: center;
       background-repeat: no-repeat;
       background-attachment: fixed;
       height: 100vh; /* 100% da altura da janela */
@@ -54,9 +54,10 @@
       align-items: center;
       text-align: center;
       color: white;
+      overflow: hidden;
     }
-    .hero::before {
-      content: ""; /* Cria um pseudo-elemento para aplicar o desfoque */
+    .hero::after {
+      content: ""; /* Cria um pseudo-elemento para aplicar o desfoque diretamente na imagem */
       position: absolute;
       top: 0;
       left: 0;
@@ -65,8 +66,8 @@
       background-image: inherit;
       background-size: cover;
       background-position: center;
-      filter: blur(8px); /* Aplica o desfoque na imagem de fundo */
-      z-index: -1; /* Garante que o desfoque fique atrás do texto */
+      filter: blur(8px); /* Aplica o desfoque na imagem */
+      z-index: -1; /* Garante que o desfoque fique atrás do conteúdo */
     }
     .hero h1 {
       font-size: 4rem;
