@@ -40,9 +40,10 @@
     }
     .hero {
       background-image: url('https://www.comececomopedireito.com.br/blog/wp-content/uploads/2024/02/analise-de-dados-com-power-bi.jpg');
-      background-size: cover;
-      background-position: center;
-      height: 100vh;
+      background-size: cover; /* Garantir que a imagem cubra toda a área */
+      background-position: center; /* Centraliza a imagem */
+      background-attachment: fixed; /* Garante que a imagem se mova com a rolagem */
+      height: 100vh; /* A altura da seção será 100% da altura da janela do navegador */
       display: flex;
       flex-direction: column;
       justify-content: center;
