@@ -11,6 +11,7 @@
       font-family: 'Montserrat', sans-serif;
       margin: 0;
       padding: 0;
+      overflow-x: hidden; /* Impede que a página tenha barra de rolagem horizontal */
     }
     section {
       padding: 50px 20px;
@@ -40,10 +41,11 @@
     }
     .hero {
       background-image: url('https://www.comececomopedireito.com.br/blog/wp-content/uploads/2024/02/analise-de-dados-com-power-bi.jpg');
-      background-size: cover; /* Garantir que a imagem cubra toda a área */
-      background-position: center; /* Centraliza a imagem */
+      background-size: cover; /* Garante que a imagem cobre toda a área */
+      background-position: center center; /* Centraliza a imagem */
       background-attachment: fixed; /* Garante que a imagem se mova com a rolagem */
       height: 100vh; /* A altura da seção será 100% da altura da janela do navegador */
+      width: 100%; /* Garante que a imagem ocupe toda a largura da tela */
       display: flex;
       flex-direction: column;
       justify-content: center;
