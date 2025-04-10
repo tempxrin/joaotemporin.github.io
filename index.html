@@ -1,94 +1,69 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Seu Portfólio</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Referência para o CSS externo -->
+    <title>Meu Portfólio</title>
     <style>
-        /* Adicionando as regras para o efeito de desfoque e cobertura */
-        #intro {
-            position: relative;
-            height: 100vh; /* Faz com que a imagem cubra a altura total da tela */
-            background-image: url('caminho-para-sua-imagem.jpg'); /* Substitua com o caminho da sua imagem */
-            background-size: cover;
-            background-position: center;
-            filter: blur(10px); /* Aplica o desfoque na imagem */
-            transition: filter 0.5s ease-out;
-        }
-
-        /* Reverter o desfoque quando a página rolar para outra seção */
-        body:not(:hover) #intro {
-            filter: blur(10px);
-        }
-
-        #intro .intro-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            text-align: center;
-        }
-
-        #intro .intro-content h1 {
-            font-size: 4em;
+        body {
             margin: 0;
+            font-family: Arial, sans-serif;
         }
 
-        #intro .intro-content .button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #ff4500;
-            color: white;
-            border: none;
-            cursor: pointer;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-
-        #intro .intro-overlay {
-            position: absolute;
+        /* Apenas o fundo da página */
+        .background {
+            position: fixed;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.5); /* Overlay escuro para contrastar o texto */
+            background-image: url('sua-imagem-de-fundo.jpg'); /* Coloque o caminho da imagem de fundo */
+            background-size: cover;
+            z-index: -1; /* O fundo ficará atrás do conteúdo */
         }
 
-        /* Adiciona uma transição suave na imagem quando a rolagem ocorre */
-        #about {
-            padding: 60px 0;
+        /* Estilizando o conteúdo da página */
+        .content {
+            position: relative;
+            z-index: 1; /* Isso garante que o conteúdo ficará sobre o fundo */
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            font-size: 3em;
+        }
+
+        p {
+            font-size: 1.5em;
+        }
+
+        .button {
+            padding: 10px 20px;
+            background-color: #000;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+        }
+
+        .button:hover {
+            background-color: #555;
         }
     </style>
 </head>
-
 <body>
 
-    <!-- Seção de Introdução -->
-    <section id="intro">
-        <div class="intro-overlay"></div>
-        <div class="intro-content">
-            <h1>Olá, Eu sou João Temporin</h1>
-            <p>Analista de Dados | Especialista em Excel & BI</p>
-            <a href="#about" class="button">Sobre Mim</a>
-        </div>
-    </section>
+    <!-- Div com fundo sem desfoque -->
+    <div class="background"></div>
 
-    <!-- Seção Sobre Mim -->
-    <section id="about">
-        <div class="row section-intro">
-            <div class="col-twelve">
-                <h5>Sobre</h5>
-                <h1>Quem sou</h1>
-            </div>
-        </div>
-
-        <!-- Aqui você pode adicionar mais conteúdo para a seção sobre mim -->
-    </section>
+    <!-- Conteúdo da página -->
+    <div class="content">
+        <h1>Bem-vindo ao meu portfólio!</h1>
+        <p>Sou um profissional apaixonado por dados e tecnologia.</p>
+        <a href="#sobre" class="button">Saiba mais sobre mim</a>
+    </div>
 
 </body>
-
 </html>
