@@ -50,7 +50,7 @@ export default function Portfolio() {
             <button
               key={index}
               onClick={() => handleScrollToSection(item)}
-              className="nav-button text-white px-4 py-2 rounded-full transition-all duration-300"
+              className="nav-button text-white px-4 py-2 rounded-full transition-all duration-300 hover:bg-[#e6007e] hover:text-white"
             >
               {item.charAt(0).toUpperCase() + item.slice(1)}
             </button>
@@ -99,6 +99,15 @@ export default function Portfolio() {
             />
           ))}
         </div>
+      </section>
+
+      {/* Outras seções (exemplo Sobre, Habilidades, etc.) */}
+      <section className="px-6 py-16 bg-white" id="sobre">
+        <h2 className="text-3xl font-bold text-center mb-10 text-[#e6007e]">Sobre Mim</h2>
+        <p className="text-[#3a506b] leading-relaxed text-center">
+          Sou um Analista de Dados com paixão por transformar dados em insights estratégicos para negócios. Tenho experiência
+          em Power BI, Python, SQL, Machine Learning e outras ferramentas de análise de dados.
+        </p>
       </section>
     </div>
   );
